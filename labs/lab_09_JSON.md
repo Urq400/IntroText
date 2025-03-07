@@ -149,5 +149,40 @@ Example:
   - Is it valid YAML (parsable)?
   - Does it contain a top-level list with at least 3 objects?
   - Are there some comments (`#`) with field data types containing at least one of the following words: `number`, `string`, `null`, `boolean`, `object`, `array`?
+[
+  {
+    "name": "Lebron James",
+    "sport": "basketball",
+    "position": "forward",
+    "age": 38,
+    "team": {
+      "name": "Lakers",
+      "city": "Los Angeles"
+    }
+  },
+  {
+    "name": "Lebron James",
+    "sport": "basketball",
+    "position": "forward",
+    "age": 38,
+    "team": {
+      "name": "Lakers",
+      "city": "Los Angeles"
+    }
+  }
 
+]- name: Lebron James
+  sport: basketball
+  position: forward #string
+  age: 38 #number
+  team: #object
+    name: Lakers
+    city: Los Angeles
+- name: Lebron James
+  sport: basketball
+  position: forward
+  age: 38
+  team:
+    name: Lakers
+    city: Los Angeles
 
