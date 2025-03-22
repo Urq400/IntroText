@@ -56,28 +56,48 @@ ORDER BY due_date;
 
 1. **Assignments for a Specific Course**  
    Write a query to display the `title` and `due_date` of assignments for the course `COMP1234`.
-
+SELECT title, due_date
+FROM assignments
+WHERE course_id = 'COMP1234';
 
 2. **Earliest Assignment Due Date**  
    Write a query to find the earliest assignment due date in the `assignments` table. Hint: use `SELECT min()`
-
+FROM assignments 
+SELECT min (due_date)
    
 3. **Latest Assignment Due Date**  
    Write a query to find the latest assignment due date in the `assignments` table.
+SELECT MAX(due_date) AS latest_due_date
+FROM assignments;
 
 4. **Assignments Due on a Specific Date**  
     Write a query to find the `title` and `course_id` of assignments due on `2024-10-08`.
+SELECT title, course_id
+FROM assignments
+WHERE due_date = '2024-10-08';
 
-5. **Find All Assignments Due in October**  
+6. **Find All Assignments Due in October**  
    Write a query to display the `title` and `due_date` of assignments due in October 2024. Hint: use `LIKE '2024-10%'`
+SELECT title, due_date
+FROM assignments
+WHERE due_date BETWEEN '2024-10-01' AND '2024-10-31';
 
-6. **Find the Most Recent Completed Assignment**  
+8. **Find the Most Recent Completed Assignment**  
     Write a query to find the most recent `due_date` of assignments with a status of "Completed".
+SELECT MAX(due_date) AS most_recent_completed_due_date
+FROM assignments
+WHERE status = 'Completed';
 
-7. **Count of "Not Started" Assignments**  
+10. **Count of "Not Started" Assignments**  
    Write a query to find the total number of assignments with a status of "Not Started". Remember to use single quotes for strings in SQL.
+SELECT COUNT(*) AS total_not_started
+FROM assignments
+WHERE status = 'Not Started';
 
-8. **Find Courses with Labs on Tuesday**  
+12. **Find Courses with Labs on Tuesday**  
    Write a query to find the `course_id` and `course_name` of courses that have lab sessions on Tuesday. Hint: use `LIKE 'Tue%`
-   
+   SELECT courses.course_id, courses.course_name
+FROM courses
+JOIN labs ON courses.course_id = labs.course_id
+WHERE labs.day = 'Tuesday';
 
